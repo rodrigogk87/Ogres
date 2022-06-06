@@ -10,7 +10,7 @@ contract Ogres is ERC721A, Ownable {
     string public baseURI; 
     string public baseExtension = ".json";
     uint256 public MAX_AMOUNT_PER_MINT = 10;
-    uint256 public cost = 0.001 ether;
+    uint256 public COST_PER_NFT = 0.001 ether;
     uint256 public maxNFT = 555;
     bool metadataLocked = false;
 
@@ -18,7 +18,7 @@ contract Ogres is ERC721A, Ownable {
 
     function mint(uint256 quantity) external payable {
         require(_totalMinted() + quantity <= maxNFT,"not enough NFT to mint");
-        require(msg.value >= quantity * cost, "not enough ethers sent");
+        require(msg.value >= quantity * COST_PER_NFT, "not enough ethers sent");
         require(quantity <= MAX_AMOUNT_PER_MINT,"cant mint more than max amount per mint");
         _safeMint(msg.sender, quantity);
     }
@@ -52,7 +52,7 @@ contract Ogres is ERC721A, Ownable {
     }
 
     function setCost(uint256 _newCost) public onlyOwner {
-        cost = _newCost;
+        COST_PER_NFT = _newCost;
     }
 
     function setBaseURI(string memory _newBaseURI) public onlyOwner {
