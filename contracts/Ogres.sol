@@ -14,7 +14,10 @@ contract Ogres is ERC721A, Ownable {
     uint256 public maxNFT = 555;
     bool metadataLocked = false;
 
-    constructor() ERC721A("Ogres", "OGR") {}
+    constructor() ERC721A("Ogres", "OGR") {
+        //set base URI
+        setBaseURI("https://URL/");
+    }
 
     function mint(uint256 quantity) external payable {
         require(_totalMinted() + quantity <= maxNFT,"not enough NFT to mint");
