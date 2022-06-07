@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 import "erc721a/contracts/ERC721A.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Ogres is ERC721A, Ownable {
+contract VibeTribe is ERC721A, Ownable {
     using Strings for uint256;
     
     string public baseURI; 
@@ -14,7 +14,7 @@ contract Ogres is ERC721A, Ownable {
     uint256 public maxNFT = 555;
     bool metadataLocked = false;
 
-    constructor() ERC721A("Ogres", "OGR") {
+    constructor() ERC721A("Vibe Tribe", "VBT") {
         //set base URI
         setBaseURI("https://URL/");
     }
@@ -30,8 +30,6 @@ contract Ogres is ERC721A, Ownable {
         return _totalMinted();
     }
 
-    //uri of ERC721
-   //uri of ERC721 
     function tokenURI(uint256 tokenId)
         public
         view
@@ -41,7 +39,7 @@ contract Ogres is ERC721A, Ownable {
     {
         require(
         _exists(tokenId),
-        "ERC721Metadata: URI query for nonexistent token!"
+        "URI query for nonexistent token!"
         );
 
         string memory currentBaseURI = _baseURI();
@@ -59,12 +57,12 @@ contract Ogres is ERC721A, Ownable {
     }
 
     function setBaseURI(string memory _newBaseURI) public onlyOwner {
-        require(metadataLocked == false, "Metadata is locked");
+        require(metadataLocked == false, "Metadata locked");
         baseURI = _newBaseURI;
     }
 
     function lockMetadata() public onlyOwner {
-        require(metadataLocked == false, "Metadata are already locked");
+        require(metadataLocked == false, "Metadata already locked");
         metadataLocked = true;
     }
 
