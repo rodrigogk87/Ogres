@@ -1,3 +1,3 @@
-# OGRES NFT
+# VibeTribe NFT
 
-Ogres NFT project
+VibeTribe NFT project
