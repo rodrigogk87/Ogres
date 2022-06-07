@@ -10,7 +10,7 @@ contract VibeTribe is ERC721A, Ownable {
     string public baseURI; 
     string public baseExtension = ".json";
     uint256 public MAX_AMOUNT_PER_MINT = 10;
-    uint256 public COST_PER_NFT = 0.001 ether;
+    uint256 public COST_PER_NFT = 0.08 ether;
     uint256 public maxNFT = 555;
     bool metadataLocked = false;
 
