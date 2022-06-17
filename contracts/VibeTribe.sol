@@ -16,7 +16,7 @@ contract VibeTribe is ERC721A, Ownable {
 
     constructor() ERC721A("Vibe Tribe", "VBT") {
         //set base URI
-        setBaseURI("https://URL/");
+        setBaseURI("https://ipfs.io/ipfs/QmcmNS8YfjLJubAqkxeCLpivzQtk5sHXvkfy5FRowCwuuP/");
     }
 
     function mint(uint256 quantity) external payable {
